@@ -1,0 +1,63 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "build DLL",
+            "type": "shell",
+            "command": "cl",
+            "args": [
+                "/EHsc",
+                "/D",
+                "EXPORTAR_DLL",
+                "/LD",
+                "DllMain.cpp",
+                "Minecraft.cpp"
+            ],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "problemMatcher": [
+                "$msCompile"
+            ]
+        },
+        {
+            "label": "link DLL",
+            "type": "shell",
+            "command": "link",
+            "args": [
+                "/DLL",
+                "/OUT:Clicker.dll",
+                "DllMain.obj",
+                "Minecraft.obj"
+            ],
+            "group": {
+                "kind": "build",
+                "isDefault": false
+            },
+            "problemMatcher": [
+                "$msCompile"
+            ]
+        },
+        {
+            "type": "cppbuild",
+            "label": "C/C++: cl.exe build active file",
+            "command": "cl.exe",
+            "args": [
+                "/Zi",
+                "/EHsc",
+                "/nologo",
+                "/Fe${fileDirname}\\${fileBasenameNoExtension}.exe",
+                "${file}"
+            ],
+            "options": {
+                "cwd": "${fileDirname}"
+            },
+            "problemMatcher": [
+                "$msCompile"
+            ],
+            "group": "build",
+            "detail": "compiler: cl.exe"
+        }
+    ]
+}

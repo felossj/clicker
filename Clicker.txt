@@ -1,0 +1,1 @@
+Switch the state of the clicker to the middle mouse button (wheel)
